@@ -64,9 +64,16 @@ class IA_marks(models.Model):
     id = models.AutoField(primary_key=True)
     std_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     sub_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    ia_1_marks = models.DecimalField(max_digits=5, decimal_places=2)
-    ia_2_marks = models.DecimalField(max_digits=5, decimal_places=2)
-    ia_3_marks = models.DecimalField(max_digits=5, decimal_places=2)
+    
+    IAChoose = (
+        ('1', 'IA 1'),
+        ('2', 'IA 2'),
+        ('2', 'IA 3'),
+    )
+    ia = models.CharField(max_length=1, choices=IAChoose, default='1')
+
+    ia_marks = models.IntegerField(default=0)
+    
     quiz = models.DecimalField(max_digits=5, decimal_places=2)
     assignment = models.DecimalField(max_digits=5, decimal_places=2)
     total_marks = models.DecimalField(max_digits=5, decimal_places=2)

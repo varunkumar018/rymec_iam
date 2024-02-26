@@ -1,9 +1,10 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions,generics
 from .models import Branch, Scheme, Batch, Subject, Staff, Student, IA_marks
 from .serializers import BranchSerializer, SchemeSerializer, BatchSerializer, SubjectSerializer, StaffSerializer, StudentSerializer, IAMarksSerializer
 from django.contrib.auth import get_user_model
 from users.permissions import IsClgAdmin, IsDeptAdmin, IsStaff, IsStudent
 
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class BranchViewSet(viewsets.ModelViewSet):
@@ -130,3 +131,11 @@ class IAMarksViewSet(viewsets.ModelViewSet):
     #     else:
     #         permission_classes = [permissions.AllowAny]  
     #     return [permission() for permission in permission_classes]
+
+
+class StudentFilterView(generics.ListAPIView):
+    serializer_class = StudentSerializer
+
+    queryset = Student.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['stu_sem', 'branch', 'batch', 'sec']  # Define fields for filtering
