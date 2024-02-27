@@ -139,3 +139,11 @@ class StudentFilterView(generics.ListAPIView):
     queryset = Student.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['stu_sem', 'branch', 'batch', 'sec']  # Define fields for filtering
+
+
+class StaffFilterView(generics.ListAPIView):
+    serializer_class = StaffSerializer
+
+    queryset = Staff.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['branch', 'sub_handling']  # Define fields for filtering
