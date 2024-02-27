@@ -74,6 +74,6 @@ class IA_marks(models.Model):
 
     ia_marks = models.IntegerField(default=0)
     
-    quiz = models.DecimalField(max_digits=5, decimal_places=2)
-    assignment = models.DecimalField(max_digits=5, decimal_places=2)
-    total_marks = models.DecimalField(max_digits=5, decimal_places=2)
+    # quiz = models.DecimalField(max_digits=5, decimal_places=2)
+    # assignment = models.DecimalField(max_digits=5, decimal_places=2)
+    # total_marks = models.DecimalField(max_digits=5, decimal_places=2)
