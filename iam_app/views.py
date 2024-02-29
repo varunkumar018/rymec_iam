@@ -5,6 +5,15 @@ from django.contrib.auth import get_user_model
 from users.permissions import IsClgAdmin, IsDeptAdmin, IsStaff, IsStudent
 
 from django_filters.rest_framework import DjangoFilterBackend
+import openpyxl
+from django.http import HttpResponse
+import pandas as pd
+
+import io
+from rest_framework.response import Response
+
+
+
 
 
 class BranchViewSet(viewsets.ModelViewSet):
@@ -139,6 +148,9 @@ class StudentFilterView(generics.ListAPIView):
     queryset = Student.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['stu_sem', 'branch', 'batch', 'sec']  # Define fields for filtering
+
+
+
 
 
 class StaffFilterView(generics.ListAPIView):

@@ -16,6 +16,7 @@ router.register(r'iamarks', IAMarksViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('varun/ia/', StudentFilterView.as_view(), name='student_filter'),  # Add path to StudentFilterView
+
     path('filter/staff/', StaffFilterView.as_view(), name='staff_filter'),  # Add path to StaffFilterView
 
 ]
