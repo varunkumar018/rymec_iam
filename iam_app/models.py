@@ -64,6 +64,15 @@ class IA_marks(models.Model):
     id = models.AutoField(primary_key=True)
     std_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     sub_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    batch = models.ForeignKey(Batch, on_delete=models.CASCADE,default=1)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE,default=2)
+    stu_sem = models.IntegerField(default=0)
+    sec = models.CharField(max_length=2,default='Z')
+
+
+
+
+
     
     IAChoose = (
         ('1', 'IA 1'),
