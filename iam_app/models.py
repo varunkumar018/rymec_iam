@@ -67,17 +67,12 @@ class IA_marks(models.Model):
     batch = models.ForeignKey(Batch, on_delete=models.CASCADE,default=1)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE,default=2)
     stu_sem = models.IntegerField(default=0)
-    sec = models.CharField(max_length=2,default='Z')
+    sec = models.CharField(max_length=2)
 
-
-
-
-
-    
     IAChoose = (
         ('1', 'IA 1'),
         ('2', 'IA 2'),
-        ('2', 'IA 3'),
+        ('3', 'IA 3'),
     )
     ia = models.CharField(max_length=1, choices=IAChoose, default='1')
 

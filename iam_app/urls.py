@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import BranchViewSet, SchemeViewSet, BatchViewSet, StaffFilterView, SubjectViewSet, StaffViewSet, StudentViewSet, IAMarksViewSet,StudentFilterView
+from .views import BranchViewSet, SchemeViewSet, BatchViewSet, StaffFilterView, SubjectViewSet, StaffViewSet, StudentViewSet, IAMarksViewSet,StudentFilterView, IaMarksFilterView
 
 router = DefaultRouter()
 router.register(r'branches', BranchViewSet)
@@ -18,5 +18,7 @@ urlpatterns = [
     path('varun/ia/', StudentFilterView.as_view(), name='student_filter'),  # Add path to StudentFilterView
 
     path('filter/staff/', StaffFilterView.as_view(), name='staff_filter'),  # Add path to StaffFilterView
+
+    path('filter/iamarks/', IaMarksFilterView.as_view(), name='iamarks_filter'),  # Add path to IaMarksFilterView
 
 ]
